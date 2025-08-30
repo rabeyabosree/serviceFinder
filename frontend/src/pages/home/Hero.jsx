@@ -1,95 +1,91 @@
 import React from "react";
 import Navbar from "./Navbar";
 import {
-  FaMapMarkerAlt,
   FaSearch,
   FaWrench,
   FaBolt,
   FaChalkboardTeacher,
   FaUtensils,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 function Hero() {
+  const navigate = useNavigate()
   return (
-    <div className="relative h-screen w-full bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center">
+    <div className="relative w-full h-[85vh]">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center -z-10"
+      />
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/50 -z-10" />
 
       {/* Navbar */}
-      <div>
+      <div className="relative z-20">
         <Navbar />
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
-        {/* Heading */}
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Find Local Services Instantly
+      <section className="relative z-10 pt-32 md:pt-40 text-center text-white w-full max-w-4xl mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+          Explore Amazing Destinations
         </h1>
-        <p className="text-lg text-gray-200 mb-8">
-          Search trusted professionals near you with ease
+        <p className="text-lg md:text-xl mb-8 drop-shadow-md">
+          Find great places to stay, eat, shop, or visit from local experts.
         </p>
 
-        {/* Search Section */}
-        <div className="w-full max-w-3xl bg-white shadow-lg rounded-2xl p-4 flex flex-col md:flex-row items-center gap-3">
-          {/* Service Input */}
+        {/* Search Bar */}
+        <div className="flex flex-col md:flex-row bg-white/30 backdrop-blur-md rounded-full overflow-hidden shadow-lg max-w-3xl mx-auto">
           <input
             type="text"
-            placeholder="What service are you looking for?"
-            className="w-full md:flex-1 p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="What e.g. shopping, restaurant..."
+            aria-label="Search services"
+            className="flex-1 px-6 py-3 text-gray-700 outline-none placeholder-gray-400"
           />
+          <input
+            type="text"
+            placeholder="Where e.g. your city"
+            aria-label="Search location"
+            className="flex-1 px-6 py-3 text-gray-700 outline-none placeholder-gray-400 border-t md:border-t-0 md:border-l border-white/40"
+          />
+          <button
+            aria-label="Search"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 flex items-center justify-center transition-colors duration-300"
+          >
+            <FaSearch className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
 
-          {/* Location Input */}
-          <div className="relative w-full md:w-1/3">
-            <FaMapMarkerAlt className="absolute left-3 top-3 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Enter location"
-              className="w-full p-3 pl-10 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
+      {/* Service Provider CTA */}
+      <div className="relative z-10 mt-16 md:mt-32 text-center max-w-xl mx-auto p-4 rounded-2xl bg-white/20 backdrop-blur-md shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <h3 className="text-xl font-bold text-indigo-800 flex items-center justify-center md:justify-start">
+          Are you a service provider?
+        </h3>
+        <button onClick={()=> navigate('/register')} className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors duration-300">
+          Join Now
+        </button>
+      </div>
+
+      {/* Popular Services (positioned -bottom and horizontally center) */}
+      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-5xl px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <FaWrench className="text-3xl text-indigo-600 mb-2 bg-indigo-100 rounded-full p-3" />
+            <p className="text-gray-700 font-medium">Plumber</p>
           </div>
-
-          {/* Search Button */}
-          <button className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
-            <FaSearch /> Search
-          </button>
-        </div>
-
-        {/* Service Provider CTA (Now ABOVE category) */}
-        <div className="mt-12 bg-indigo-100 w-full max-w-3xl p-6 rounded-2xl text-center shadow-md">
-          <h3 className="text-xl font-bold text-indigo-800">
-            Are you a service provider?
-          </h3>
-          <p className="text-gray-700 mb-4">
-            Join our platform and reach thousands of customers today.
-          </p>
-          <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
-            Join Now
-          </button>
-        </div>
-
-        {/* Popular Services */}
-        <div className="mt-12 w-full max-w-4xl">
-          <h3 className="text-xl font-semibold text-white mb-6">
-            Popular Services
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow hover:shadow-lg transition cursor-pointer">
-              <FaWrench className="text-3xl text-indigo-600 mb-2" />
-              <p className="text-gray-700 font-medium">Plumber</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow hover:shadow-lg transition cursor-pointer">
-              <FaBolt className="text-3xl text-yellow-500 mb-2" />
-              <p className="text-gray-700 font-medium">Electrician</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow hover:shadow-lg transition cursor-pointer">
-              <FaChalkboardTeacher className="text-3xl text-green-500 mb-2" />
-              <p className="text-gray-700 font-medium">Tutor</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow hover:shadow-lg transition cursor-pointer">
-              <FaUtensils className="text-3xl text-red-500 mb-2" />
-              <p className="text-gray-700 font-medium">Home Cook</p>
-            </div>
+          <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <FaBolt className="text-3xl text-yellow-500 mb-2 bg-yellow-100 rounded-full p-3" />
+            <p className="text-gray-700 font-medium">Electrician</p>
+          </div>
+          <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <FaChalkboardTeacher className="text-3xl text-green-500 mb-2 bg-green-100 rounded-full p-3" />
+            <p className="text-gray-700 font-medium">Tutor</p>
+          </div>
+          <div className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <FaUtensils className="text-3xl text-red-500 mb-2 bg-red-100 rounded-full p-3" />
+            <p className="text-gray-700 font-medium">Home Cook</p>
           </div>
         </div>
       </div>
@@ -98,6 +94,9 @@ function Hero() {
 }
 
 export default Hero;
+
+
+
 
 
 

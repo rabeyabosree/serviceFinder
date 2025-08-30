@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
+  const navigte = useNavigate()
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -38,7 +39,7 @@ function Navbar() {
 
         {/* Login Button */}
         <div>
-          <button className="ml-4 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <button onClick={()=> navigte("/login")} className="ml-4 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
             Login
           </button>
         </div>
