@@ -59,11 +59,11 @@ function Hero() {
       </section>
 
       {/* Service Provider CTA */}
-      <div className="relative z-10 mt-16 md:mt-32 text-center max-w-xl mx-auto p-4 rounded-2xl bg-white/20 backdrop-blur-md shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
-        <h3 className="text-xl font-bold text-indigo-800 flex items-center justify-center md:justify-start">
+      <div className="relative z-10 mt-18 md:mt-40 text-center max-w-[450px] mx-auto p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-2">
+        <h3 className="text-xl font-bold text-gray-900 flex items-center justify-center md:justify-start">
           Are you a service provider?
         </h3>
-        <button onClick={()=> navigate('/register')} className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors duration-300">
+        <button onClick={()=> navigate('/register')} className="bg-indigo-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-indigo-700 transition-colors duration-300">
           Join Now
         </button>
       </div>
