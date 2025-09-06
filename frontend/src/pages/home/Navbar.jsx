@@ -1,53 +1,71 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FcServices } from "react-icons/fc";
+import { MdMenuOpen, MdClose } from "react-icons/md";
+import { useState } from "react";
 
 function Navbar() {
-  const location = useLocation();
-  const navigte = useNavigate()
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Service", path: "/service" },
+    { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
   return (
-    <header className="w-full fixed top-0 py-4  flex items-center justify-between px-8">
-      {/* Logo */}
-      <h1 className="text-2xl font-bold text-blue-600">Easy Find</h1>
+    <header className="fixed top-0 left-0 w-full py-4 px-8 z-[100] bg-transparent backdrop-blur-sm">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
+        {/* Logo */}
+        <div className="font-bold text-2xl flex items-center gap-2 text-white cursor-pointer">
+          EasyFind <span className="text-3xl"><FcServices /></span>
+        </div>
 
-      {/* Navigation Links */}
-      <div className="flex items-center gap-12">
-        <nav>
-          <ul className="flex space-x-12">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={link.path}
-                  className={`${location.pathname === link.path
-                      ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-                      : "text-gray-900"
-                    } hover:text-blue-500 transition-colors`}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-12">
+          {navLinks.map((navmenu) => (
+            <Link
+              key={navmenu.name}
+              to={navmenu.path}
+              className="text-white font-semibold hover:text-green-400 transition-colors duration-200"
+            >
+              {navmenu.name}
+            </Link>
+          ))}
         </nav>
 
-        {/* Login Button */}
-        <div>
-          <button onClick={()=> navigte("/login")} className="ml-4 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-            Login
-          </button>
-        </div>
+        {/* Desktop Login */}
+        <button className="hidden md:block px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+          Login
+        </button>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-3xl text-white"
+          onClick={() => setIsOpenMenu(!isOpenMenu)}
+        >
+          {isOpenMenu ? <MdClose /> : <MdMenuOpen />}
+        </button>
       </div>
 
-
-
-
+      {/* Mobile Nav */}
+      {isOpenMenu && (
+        <nav className="md:hidden bg-white/95 px-8 py-4 flex flex-col gap-4 shadow-lg backdrop-blur-md rounded-b-2xl">
+          {navLinks.map((navmenu) => (
+            <Link
+              key={navmenu.name}
+              to={navmenu.path}
+              onClick={() => setIsOpenMenu(false)}
+              className="font-semibold text-gray-800 hover:text-green-700 transition transform hover:scale-105"
+            >
+              {navmenu.name}
+            </Link>
+          ))}
+          <button className="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+            Login
+          </button>
+        </nav>
+      )}
     </header>
   );
 }

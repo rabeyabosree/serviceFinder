@@ -4,6 +4,7 @@ import RegisterPage from './pages/auth/RegisterPage';
 import LoginPage from './pages/auth/LoginPage';
 import Services from './pages/service/Services';
 import Navbar from './pages/home/Navbar';
+import ServiceDetails from './pages/service/ServiceSetails';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
 
-        <Route path='/service' element={<Services />} />
+        <Route path='/services' element={<Services />} />
+         <Route path='/services/:id' element={<ServiceDetails />} />
       </Routes>
 
     </Router>
