@@ -20,12 +20,12 @@ function Services() {
 
   return (
 
-    <section className="p-6 max-w-4xl flex items-center justify-center mx-auto pt-20 ">
-      <div >
+    <section className="bg-DustyRose w-full p-8 h-screen  mx-auto pt-20 flex items-start justify-start ">
+      <div className="max-w-6xl ">
         <h1 className="text-2xl font-bold mb-4">Services</h1>
 
         {/* Search bar */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 mb-6 w-xl ">
           <input
             type="text"
             placeholder="Search by service type or location"
@@ -43,7 +43,7 @@ function Services() {
           {filtered.map((service) => (
             <div
               key={service.name}
-              className="border rounded-lg shadow-md p-4 flex flex-col gap-2"
+              className="border-lavender border rounded-lg p-4 flex flex-1 items-center gap-16"
               onClick={() => navigate(`/services/${service.id}`)}
             >
               <div className="flex items-center gap-3">
@@ -58,10 +58,12 @@ function Services() {
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600 mt-2">
-                <p> Price: ${service.price}</p>
-                <p>⭐ Rating: {service.rating}</p>
-                <p> Availability: {service.availability}</p>
+              <div className="text-sm text-black mt-2 flex flex-1 gap-2">
+                <p> ${service.price}</p>
+                <div className="flex flex-1 gap-0.5">
+                  <p>⭐{service.rating}</p>
+                  <p>  {service.availability}</p>
+                </div>
               </div>
             </div>
           ))}

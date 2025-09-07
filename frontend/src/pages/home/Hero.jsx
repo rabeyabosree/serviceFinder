@@ -52,7 +52,7 @@ function Hero() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             aria-label="Search services"
-            className="flex-1 px-6 py-3 text-white outline-none placeholder-gray-400"
+            className="flex-1 px-6 py-3 text-white outline-none placeholder-white"
           />
           <input
             type="text"
@@ -60,7 +60,7 @@ function Hero() {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             aria-label="Search location"
-            className="flex-1 px-6 py-3 text-white outline-none placeholder-gray-400 border-t md:border-t-0 md:border-l border-white/40"
+            className="flex-1 px-6 py-3 text-white outline-none placeholder-white border-t md:border-t-0 md:border-l border-white/40"
           />
           <button
             type="button"
@@ -73,46 +73,33 @@ function Hero() {
         </div>
 
         {/* Popular Services */}
-        <div className="mt-16 text-left w-full max-w-4xl mx-auto px-6 sm:px-14">
-          <h2 className="text-xl font-semibold mb-6">Popular Services</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="mt-16 text-left w-full max-w-2xl mx-auto ">
+          <h2 className="text-xl font-semibold mb-6 text-white drop-shadow">
+            Popular Services
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {services.map((service) => (
-              <div
-                key={service.name}
-                role="button"
-                tabIndex={0}
-                onClick={() =>
-                  navigate(`/service/${service.name.toLowerCase()}`)
-                }
-                onKeyDown={(e) =>
-                  e.key === "Enter" &&
-                  navigate(`/service/${service.name.toLowerCase()}`)
-                }
-                className="flex flex-col items-center py-4 bg-gray-200/30 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
-              >
-                <div
-                  className={`w-12 h-12 flex items-center justify-center rounded-full ${service.color} mb-2`}
-                >
-                  {service.icon}
-                </div>
+              <div key={service.name} role="button" tabIndex={0} onClick={() => navigate(`/service/${service.name.toLowerCase()}`)} onKeyDown={(e) => e.key === "Enter" && navigate(`/service/${service.name.toLowerCase()}`)} className="flex flex-col items-center py-4 bg-gray-200/30 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer" >
+                <div className={`w-10 h-10 flex items-center justify-center rounded-full ${service.color} mb-2`} > {service.icon} </div>
                 <p className="text-gray-900 font-medium">{service.name}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Service Provider CTA */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex flex-col md:flex-row items-center gap-4 bg-white backdrop-blur-2xl rounded-2xl shadow-lg px-6 py-4">
-          <h2 className="text-lg font-medium text-gray-700">
+        {/* CTA Section */}
+        <div className="flex flex-col mt-20 max-w-2xl md:flex-row items-center justify-between gap-6 bg-DustyRose/20 backdrop-blur-lg rounded-2xl shadow-lg px-4 py-4 mx-auto">
+          <h2 className="text-lg font-medium text-white text-center md:text-left">
             Are you a service provider?
           </h2>
-          <button className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow-md hover:scale-105 hover:shadow-lg transition">
+          <button className="px-6 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow-md hover:scale-105 hover:shadow-lg transition">
             Join Now
           </button>
         </div>
-      </div>
+
+
+      </section>
+
     </div>
   );
 }
