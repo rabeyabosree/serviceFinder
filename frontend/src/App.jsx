@@ -5,24 +5,29 @@ import LoginPage from './pages/auth/LoginPage';
 import Services from './pages/service/Services';
 import Navbar from './pages/home/Navbar';
 import ServiceDetails from './pages/service/ServiceSetails';
+import MainLayout from './component/common/MainLayout';
 
 function App() {
 
 
   return (
     <Router>
-         <Navbar />
-
       <Routes>
-     
-        <Route path='/' element={<Home />} />
+
+       
+
+        <Route element={<MainLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/services/:id' element={<ServiceDetails />} />
+
+        </Route>
+
+
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
 
-        <Route path='/services' element={<Services />} />
-         <Route path='/services/:id' element={<ServiceDetails />} />
       </Routes>
-
     </Router>
   )
 }

@@ -35,9 +35,9 @@ function Navbar() {
         </nav>
 
         {/* Desktop Login */}
-        <button className="hidden md:block px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+        <Link to={"/login"} className="hidden md:block px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
           Login
-        </button>
+        </Link>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -61,9 +61,9 @@ function Navbar() {
               {navmenu.name}
             </Link>
           ))}
-          <button className="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+          <Link to={"/login"} className="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
             Login
-          </button>
+          </Link>
         </nav>
       )}
     </header>
