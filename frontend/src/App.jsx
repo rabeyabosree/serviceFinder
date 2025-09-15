@@ -11,6 +11,8 @@ import Service from './pages/dashboard/Service';
 import Booking from './pages/dashboard/Booking';
 import Earning from './pages/dashboard/Earning';
 import Settings from './pages/dashboard/Settings';
+import Dashboard from './pages/dashboard/Dashboard';
+import CustomerProfile from './pages/customer/customerProfile/CustomerProfile';
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
     <Router>
       <Routes>
 
-       
+
 
         <Route element={<MainLayout />}>
           <Route path='/' element={<Home />} />
@@ -32,15 +34,18 @@ function App() {
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
 
-        <Route path='/dashboard' element={<ProviderDashboard/>}>
-        <Route path='service' element={<Service />} />
-        <Route path='booking' element={<Booking />} />
-        <Route path='earning' element={<Earning />} />
-        <Route path='setting' element={<Settings />} />
+        {/* service provider dashboard */}
+        <Route path='/dashboard' element={<ProviderDashboard />}>
+          <Route index element={<Dashboard />} />
+          <Route path='service' element={<Service />} />
+          <Route path='booking' element={<Booking />} />
+          <Route path='earning' element={<Earning />} />
+          <Route path='settings' element={<Settings />} />
 
         </Route>
 
-       
+        {/* customer profile */}
+        <Route path='/customer' element={<CustomerProfile />} />
 
       </Routes>
     </Router>
