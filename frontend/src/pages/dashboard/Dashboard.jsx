@@ -2,14 +2,15 @@ import React from "react";
 import { MdDesignServices } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { TiTickOutline } from "react-icons/ti";
-import { FaStar, FaMoneyBillWave } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { MdWorkOutline } from "react-icons/md";
 import profile from "../../assets/traveller-with-map-mobile-phone-medium-shot.jpg"
 
 function Dashboard() {
   return (
     <div className="bg-DustyRose min-h-screen">
       {/* Top Navbar-like Header */}
-      <div className="bg-white px-6 py-4 flex items-center justify-between sticky top-0 z-10 ">
+      <div className="bg-white px-8 py-4 flex items-center justify-between sticky top-0 z-10 ">
         <h1 className="text-xl font-bold text-gray-800">
           Service Provider Dashboard
         </h1>
@@ -29,15 +30,15 @@ function Dashboard() {
       <div className="p-6">
         {/* Overview Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
+          <div className="bg-white p-6 rounded-xl shadow text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <MdDesignServices className="text-2xl " />
+              <MdWorkOutline  className="text-2xl " />
               <p className="text-2xl font-bold text-gray-800">05</p>
             </div>
             <h3 className="text-gray-500 text-sm">Total Services</h3>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
+          <div className="bg-white p-6 rounded-xl shadow text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
               <FiShoppingCart className="text-2xl " />
               <p className="text-2xl font-bold text-gray-800">03</p>
@@ -45,7 +46,7 @@ function Dashboard() {
             <h3 className="text-gray-500 text-sm">Pending Bookings</h3>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
+          <div className="bg-white p-6 rounded-xl shadow text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
               <TiTickOutline className="text-2xl " />
               <p className="text-2xl font-bold text-gray-800">20</p>
@@ -55,7 +56,7 @@ function Dashboard() {
         </div>
 
         {/* Rating and Earning */}
-        <div className="bg-white px-16 py-6 rounded-2xl shadow flex items-center justify-between mb-6">
+        <div className="bg-white px-16 py-4 rounded-xl shadow flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <FaStar className="text-yellow-500 text-2xl" />
             <div>
@@ -74,7 +75,7 @@ function Dashboard() {
         </div>
 
         {/* Recent Booking Table */}
-        <div className="bg-white p-6 rounded-2xl shadow overflow-x-auto">
+        <div className="bg-white p-6 rounded-xl shadow overflow-x-auto">
           <h3 className="text-lg font-semibold mb-4">Recent Bookings</h3>
           <table className="min-w-full text-sm text-left">
             <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
