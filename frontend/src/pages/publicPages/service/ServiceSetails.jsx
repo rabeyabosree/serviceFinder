@@ -48,7 +48,7 @@ function ServiceDetails() {
   }
 
   return (
-    <div className="p-6 pt-20 max-w-4xl mx-auto">
+    <div className="px-6 max-w-4xl mx- mt-20 bg-aqua/30">
       <div className="shadow-md rounded-2xl p-4 flex flex-col gap-3">
         {/* Profile Info */}
         <div className="flex items-center gap-3">

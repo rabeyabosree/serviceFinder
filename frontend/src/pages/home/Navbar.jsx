@@ -35,7 +35,7 @@ function Navbar() {
         </nav>
 
         {/* Desktop Login */}
-        <Link to={"/login"} className="hidden md:block px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+        <Link to={"/login"} className="hidden md:block px-5 py-2 bg-aqua text-white rounded-lg font-semibold shadow hover:scale-105 transition">
           Login
         </Link>
 
@@ -56,12 +56,12 @@ function Navbar() {
               key={navmenu.name}
               to={navmenu.path}
               onClick={() => setIsOpenMenu(false)}
-              className="font-semibold text-gray-800 hover:text-green-700 transition transform hover:scale-105"
+              className="font-semibold text-gray-800 hover:text-lavender  transition transform hover:scale-105"
             >
               {navmenu.name}
             </Link>
           ))}
-          <Link to={"/login"} className="px-5 py-2 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg font-semibold shadow hover:scale-105 transition">
+          <Link to={"/login"} className="px-5 py-2 bg-aqua text-white rounded-lg font-semibold shadow hover:scale-105 transition">
             Login
           </Link>
         </nav>

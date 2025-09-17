@@ -7,6 +7,38 @@ import { MdWorkOutline } from "react-icons/md";
 import profile from "../../assets/traveller-with-map-mobile-phone-medium-shot.jpg"
 
 function Dashboard() {
+  // Bookings data object array
+  const bookings = [
+    {
+      id: 1,
+      customer: "Jack Jone",
+      service: "Plumber",
+      time: "6:00 - 12:00",
+      status: "Pending",
+    },
+    {
+      id: 2,
+      customer: "Sarah Lee",
+      service: "Electrician",
+      time: "2:00 - 5:00",
+      status: "Completed",
+    },
+    {
+      id: 3,
+      customer: "David Miller",
+      service: "Carpenter",
+      time: "10:00 - 2:00",
+      status: "Pending",
+    },
+    {
+      id: 4,
+      customer: "Emma Watson",
+      service: "Cleaner",
+      time: "3:00 - 6:00",
+      status: "Completed",
+    },
+  ];
+
   return (
     <div className="bg-DustyRose min-h-screen">
       {/* Top Navbar-like Header */}
@@ -32,7 +64,7 @@ function Dashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="bg-white p-6 rounded-xl shadow text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <MdWorkOutline  className="text-2xl " />
+              <MdWorkOutline className="text-2xl " />
               <p className="text-2xl font-bold text-gray-800">05</p>
             </div>
             <h3 className="text-gray-500 text-sm">Total Services</h3>
@@ -66,7 +98,7 @@ function Dashboard() {
           </div>
 
           <div className="flex items-center gap-3">
-          
+
             <div>
               <h3 className="text-gray-500 text-sm">Earnings (This Month)</h3>
               <p className="text-xl font-bold text-gray-800">$1,250</p>
@@ -88,66 +120,38 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium">Jack Jone</td>
-                <td className="px-6 py-4">Plumber</td>
-                <td className="px-6 py-4">6:00 - 12:00</td>
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
-                    Pending
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <button className="px-3 py-1 rounded-lg bg-lavender text-white text-xs hover:bg-indigo-600 transition">
-                    View
-                  </button>
-                </td>
-              </tr>
-              <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium">Sarah Lee</td>
-                <td className="px-6 py-4">Electrician</td>
-                <td className="px-6 py-4">2:00 - 5:00</td>
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
-                    Completed
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <button className="px-3 py-1 rounded-lg bg-lavender text-white text-xs hover:bg-indigo-600 transition">
-                    View
-                  </button>
-                </td>
-              </tr>
-               <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium">Sarah Lee</td>
-                <td className="px-6 py-4">Electrician</td>
-                <td className="px-6 py-4">2:00 - 5:00</td>
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
-                    Completed
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <button className="px-3 py-1 rounded-lg bg-lavender text-white text-xs hover:bg-indigo-600 transition">
-                    View
-                  </button>
-                </td>
-              </tr>
-               <tr className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium">Sarah Lee</td>
-                <td className="px-6 py-4">Electrician</td>
-                <td className="px-6 py-4">2:00 - 5:00</td>
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
-                    Completed
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <button className="px-3 py-1 rounded-lg bg-lavender text-white text-xs hover:bg-indigo-600 transition">
-                    View
-                  </button>
-                </td>
-              </tr>
+              {bookings.map((booking) => (
+                <tr key={booking.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium">{booking.customer}</td>
+                  <td className="px-6 py-4">{booking.service}</td>
+                  <td className="px-6 py-4">{booking.time}</td>
+                  <td className="px-6 py-4">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-medium 
+      ${booking.status === "Pending"
+                          ? "bg-amber-100 text-gray-600"
+                          : booking.status === "Accepted"
+                            ? "bg-blue-100 text-gray-600"
+                            : booking.status === "Completed"
+                              ? "bg-green-100 text-gray-600"
+                              : "bg-gray-100 text-gray-600"
+                        }`}
+                    >
+                      {booking.status}
+                    </span>
+                  </td>
+
+
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => navigate(`/dashboard/booking/${booking.id}`)}
+                      className="px-3 py-1 rounded-lg bg-lavender text-white text-xs hover:bg-indigo-600 transition"
+                    >
+                      View
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
