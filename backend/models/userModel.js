@@ -9,11 +9,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ["Customer", "Provider"],
         default: "Customer",
+        required: true
     },
 
     avatar: { type: String },
-    category: { type: String },
-    serviceArea: { type: String },
+    service: { type: String },
+    location: { type: String },
     availability: [
         {
             day: { type: String, enum: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
@@ -21,6 +22,8 @@ const userSchema = new mongoose.Schema({
             end: { type: String },   // "17:00"
         },
     ],
+    resetToken: { type: String },
+    expireResetToken: { type: String }
 }, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);

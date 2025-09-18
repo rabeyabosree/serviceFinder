@@ -5,6 +5,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
+  // role
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ email, password, rememberMe });
