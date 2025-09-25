@@ -37,7 +37,7 @@ function Services() {
             <div
               key={service.id}
               onClick={()=> navigate(`/services/${service.id}`)}
-              className="flex flex-col bg-aqua/20 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-transform cursor-pointer"
+              className="flex flex-col bg-white backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-transform cursor-pointer"
             >
               {/* Top row: Profile info + Book Now */}
               <div className="flex justify-between items-center mb-4">
@@ -48,14 +48,14 @@ function Services() {
                     className="w-14 h-14 rounded-full object-cover"
                   />
                   <div>
-                    <h2 className="font-semibold text-lg text-white">{service.name}</h2>
+                    <h2 className="font-semibold text-lg text-gray-700">{service.name}</h2>
                     <p className="text-lavender">{service.service}</p>
                   </div>
                 </div>
 
                 {/* Book Now button */}
                 <button
-                  className="flex items-center gap-2 bg-lavender text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 hover:bg-gradient-to-r from-lavender to-lavender/70 transition-all"
+                  className="flex items-center gap-2 bg-aqua text-white px-4 py-2 rounded-lg font-semibold hover:scale-105 hover:bg-gradient-to-r from-lavender to-lavender/70 transition-all"
                   onClick={() => navigate(`/services/${service.id}`)}
                 >
                   <FaCalendarCheck className="w-4 h-4" /> Book

@@ -35,7 +35,7 @@ function Service() {
       <div className="flex justify-end mb-6">
         <button
           onClick={() => navigate("/dashboard/service/add")}
-          className="bg-lavender text-white px-5 py-2 rounded-lg hover:bg-lavender/80 transition"
+          className="bg-white text-white px-5 py-2 rounded-lg hover:bg-lavender/80 transition"
         >
           <span className="pr-2">+</span> Add Service
         </button>
