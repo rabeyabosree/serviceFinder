@@ -60,7 +60,7 @@ function Hero() {
       </section>
 
       {/* CTA Section */}
-      <div className="flex flex-col md:flex-row absolute bottom-6 sm:bottom-10 w-[70%] md:max-w-2xl items-center justify-between gap-4 sm:gap-6 bg-DustyRose/20 backdrop-blur-lg rounded-2xl shadow-lg px-4 sm:px-6 py-3 sm:py-4 mx-auto">
+      <div className="flex flex-col tracking-wide md:flex-row absolute bottom-6 sm:bottom-10 w-[50%] md:max-w-xl items-center justify-between gap-4 sm:gap-6 px-4 sm:px-6 py-3 sm:py-4 mx-auto">
         <h2 className="text-sm sm:text-base md:text-lg font-medium text-white text-center md:text-left">
           Are you a service provider?
         </h2>
